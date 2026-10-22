@@ -6,6 +6,19 @@ def calculate_average(grades):
     return sum(grades) / len(grades)
 
 
+def letter_grade(average):
+    """Return the letter grade for an average."""
+    if average >= 90:
+        return "A"
+    if average >= 80:
+        return "B"
+    if average >= 70:
+        return "C"
+    if average >= 60:
+        return "D"
+    return "F"
+
+
 def read_grade(entry):
     """Convert text to a grade between 0 and 100, or return None if invalid."""
     try:
@@ -32,7 +45,8 @@ def main():
         print("No grades entered.")
         return
 
-    print(f"Average: {calculate_average(grades):.2f}")
+    average = calculate_average(grades)
+    print(f"Average: {average:.2f} ({letter_grade(average)})")
 
 
 if __name__ == "__main__":
